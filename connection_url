@@ -1,0 +1,1 @@
+jdbc:hive2://172.16.58.203:21050/default;auth=noSasl

@@ -1,0 +1,22 @@
+<workflow-app name="ImapalaJDBC" xmlns="uri:oozie:workflow:0.4">
+    <start to="ImapalaJDBCAction"/>
+    <action name="ImapalaJDBCAction" cred="">
+        <java>
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <main-class>com.cloudera.fce.ClouderaImpalaJdbcExample</main-class>
+            <arg>example.sql</arg>
+            <arg>jdbc:hive2://quickstart.cloudera:21050/default;principal=impala/_HOST@CLOUDERA</arg>
+            <arg>cloudera.keytab</arg>
+            <arg>cloudera@CLOUDERA</arg>
+            <file>/user/cloudera/test-impala-action/example.sql#example.sql</file>
+            <file>/user/cloudera/test-impala-action/cloudera.keytab#cloudera.keytab</file>
+        </java>
+        <ok to="end"/>
+        <error to="kill"/>
+    </action>
+    <kill name="kill">
+        <message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>

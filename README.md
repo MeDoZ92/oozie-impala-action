@@ -17,3 +17,6 @@ EOF
 $ export CONNECTION_URL="jdbc:hive2://impalad_host:impalad_port/default;auth=noSasl"
 $ java -jar target/oozie-impala-action-1.0-jar-with-dependencies.jar sample.sql "$CONNECTION_URL"
 ```
+
+##### Oozie
+Refer to the example in `run-oozie/workflow.xml`

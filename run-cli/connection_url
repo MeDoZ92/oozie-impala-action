@@ -1,1 +1,1 @@
-jdbc:hive2://172.16.58.203:21050/default;auth=noSasl
+jdbc:hive2://quickstart.cloudera:21050/default;principal=impala/_HOST@CLOUDERA

@@ -1,1 +1,1 @@
-drop table if exists diediedie
+select 1
